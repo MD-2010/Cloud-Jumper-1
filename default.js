@@ -301,12 +301,13 @@ function applyGravity(){
 }
 
 function collisions(){
-    let buffer = 16;
+    let bufferX = 20;
+    let bufferY = 5;
     
-    let rightCenter = getElementAt(char.getX() + char.getWidth(), char.getY() + char.getHeight()/2);
-    let rightTop = getElementAt(char.getX() + char.getWidth() - buffer, char.getY());
-    let rightBottom = getElementAt(char.getX() + char.getWidth() - buffer, char.getY() + char.getHeight());
-    let leftBottom = getElementAt(char.getX() + buffer, char.getY() + char.getHeight());
+    let rightCenter = getElementAt(char.getX() + char.getWidth()-bufferX, char.getY() + char.getHeight()/2);
+    let rightTop = getElementAt(char.getX() + char.getWidth() - bufferX, char.getY());
+    let rightBottom = getElementAt(char.getX() + char.getWidth() - bufferX, char.getY() + char.getHeight()-bufferY);
+    let leftBottom = getElementAt(char.getX() + bufferX, char.getY() + char.getHeight());
 
     let testPoints=[rightTop,rightBottom,leftBottom,rightCenter];
     
