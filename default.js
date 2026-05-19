@@ -61,6 +61,7 @@ function setUpGame() {
     setUpCoinTracker();
     
     keyDownMethod(handleInput);
+    mouseDownMethod(handleMouseInput);
     
     setTimer(spawnCoin,2000);
     setTimer(moveCoin,20);
@@ -170,7 +171,8 @@ function startGame(e) {
     if (!gameStarted && (element == startButton || element == buttonText)) {
         gameStarted = true;
         removeAll();
-        setUpGame(); 
+        setUpGame();
+        return;
     }
     if (canBuyLife && (element == buyButton || element == buyText)) {
         revivePlayer();
@@ -273,6 +275,12 @@ function addCharacter(){
 }
 function handleInput(e){
     if (e.keyCode == Keyboard.UP && !isJumping) {
+        dy = jumpForce;
+        isJumping = true;
+    }
+}
+function handleMouseInput(e){
+    if (gameStarted && !isJumping) {
         dy = jumpForce;
         isJumping = true;
     }
