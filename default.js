@@ -46,7 +46,7 @@ let startButton;
 let buttonText;
 let gameStarted = false;
 
-function start() {
+function main() {
     showStartScreen();
 }
 
@@ -463,4 +463,4 @@ function actualGameOver(){
     }
 }
 
-start();
+main();
